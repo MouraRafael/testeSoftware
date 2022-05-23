@@ -69,7 +69,9 @@ public class AlunoDao extends Conexao {
 			
 		}
 		catch(SQLException e) {
-			
+			e.printStackTrace();
+		}finally {
+			fecharConexao();
 		}
 		
 		return lista;
@@ -119,15 +121,18 @@ public class AlunoDao extends Conexao {
 			ps.setDouble(4, a.getNota3());
 			ps.setLong(5, a.getId());
 			
-			ps.execute();
+			int atualiza = ps.executeUpdate(); //alterado para executeUpdate()
 			
-			mensagem = "alterado com sucesso";
-			
+			if(atualiza>0) {
+				mensagem = "alterado com sucesso";
+			}else {
+				mensagem = "falha em alterar";
+			}
 			
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
-			mensagem = "falha em alterar";
+			
 		}finally {
 			fecharConexao();
 		}
@@ -146,12 +151,16 @@ public class AlunoDao extends Conexao {
 			PreparedStatement ps = getConexao().prepareStatement(sql);
 			ps.setInt(1, i);
 			
-			ps.execute();
-			mensagem = "Excluído com Sucesso";
+			int foiOuNao = ps.executeUpdate();
+			if(foiOuNao>0) {
+				mensagem = "Excluído com Sucesso";
+			}else {
+				mensagem = "Erro ao excluir";
+			}
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
-			mensagem = "Erro ao excluir";
+			
 		}finally {
 			fecharConexao();
 		}

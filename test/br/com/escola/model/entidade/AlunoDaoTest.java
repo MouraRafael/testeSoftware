@@ -1,10 +1,13 @@
 package br.com.escola.model.entidade;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import br.com.escola.model.dao.AlunoDao;
@@ -62,15 +65,16 @@ class AlunoDaoTest {
 	}
 	
 	@Test
-	@Disabled
+	@DisplayName("Teste Deletar")
 	void testExlusao() {
 		AlunoDao dao = new AlunoDao();
 		
-		assertEquals("Excluído com Sucesso", dao.excluir(5));
+		assertEquals("Excluído com Sucesso", dao.excluir(4));
 	}
 	
 	
 	@Test
+	@DisplayName("Alteracao Aluno")
 	void testAlterar() {
 		Aluno aluno = new Aluno();
 		AlunoDao dao = new AlunoDao();
@@ -86,6 +90,7 @@ class AlunoDaoTest {
 	}
 	
 	@Test
+	@DisplayName("Teste para avergiguar busca pro id")
 	void testBuscaid() {
 		Aluno 		a 	= new Aluno();
 		Aluno 		b 	= new Aluno();

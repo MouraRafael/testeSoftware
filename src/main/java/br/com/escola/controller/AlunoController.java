@@ -11,4 +11,16 @@ public class AlunoController {
 		
 		return dao.listar(nome);
 	}
+	
+	
+	public String alterar(Aluno a) {
+		AlunoDao dao = new AlunoDao();
+		return dao.alterar(a);
+	}
+	
+	public String excluir (int i) {
+		AlunoDao dao = new  AlunoDao();
+		
+		return dao.excluir(i);
+	}
 }
