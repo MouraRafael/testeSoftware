@@ -23,4 +23,10 @@ public class AlunoController {
 		
 		return dao.excluir(i);
 	}
+	
+	public String incluir (Aluno a) {
+		AlunoDao dao = new AlunoDao();
+		
+		return dao.incluir(a);
+	}
 }
