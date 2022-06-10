@@ -17,7 +17,7 @@ import br.com.escola.model.dao.AlunoDao;
 class AlunoDaoTest {
 
 	@Test
-	
+	@DisplayName("Teste lista")
 	void test() {
 		AlunoDao dao = new AlunoDao();
 		
